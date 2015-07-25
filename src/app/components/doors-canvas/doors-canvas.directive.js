@@ -11,7 +11,6 @@
       restrict: 'E',
       templateUrl: 'app/components/doors-canvas/doors-canvas.html',
       controller: doorsCanvasCtrl,
-      controllerAs: 'vm',
       bindToController: true
     };
 
@@ -22,10 +21,10 @@
       init();
 
       function init(){
-        var canvas = $scope.canvas,
-        rect;
+        var rect;
 
-        canvas = new fabric.Canvas('canvas');
+        $scope.canvas            = new fabric.Canvas('canvas');
+        $scope.changeCanvasColor = changeCanvasColor;
 
         rect = new fabric.Rect({
           top : 100,
@@ -35,9 +34,23 @@
           fill : 'blue'
         });
 
-        canvas.add(rect);
+        $scope.canvas.add(rect);
       }
+
+      function renderCanvas(canvas){
+        return canvas.renderAll.bind(canvas)
+      }
+
+      function changeCanvasColor(color) {
+        if (color) {
+          console.log(color);
+          $scope.canvas.setBackgroundColor(color, renderCanvas($scope.canvas));
+        }
+      }
+
     }
+
+
 
   }
 
