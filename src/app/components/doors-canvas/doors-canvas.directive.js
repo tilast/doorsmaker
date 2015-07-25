@@ -47,11 +47,6 @@
           $scope.canvas.setBackgroundColor(color, renderCanvas($scope.canvas));
         }
       }
-
     }
-
-
-
   }
-
 })();
