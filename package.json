@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "configure": "npm install && bower install",
+    "build": "npm run configure && gulp serve"
   },
   "devDependencies": {
     "gulp": "~3.9.0",
