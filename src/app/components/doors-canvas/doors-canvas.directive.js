@@ -49,21 +49,19 @@
       }
 
       function uploadImage(uploadedImg) {
-        if (uploadedImg) {
-          var imgObj = new Image();
-          imgObj.src = uploadedImg;
+        var imgObj = new Image();
+        imgObj.src = uploadedImg;
 
-          var image = new fabric.Image(imgObj);
-          image.set({
-                left: 0,
-                top: 0,
-                padding: 10,
-                cornersize: 10
-          });
+        var image = new fabric.Image(imgObj);
+        image.set({
+          left: 0,
+          top: 0,
+          padding: 10,
+          cornersize: 10
+        });
 
-          $scope.canvas.add(image);
-          $scope.canvas.sendToBack(image);
-        }
+        $scope.canvas.add(image);
+        $scope.canvas.sendToBack(image);
       }
     }
   }
