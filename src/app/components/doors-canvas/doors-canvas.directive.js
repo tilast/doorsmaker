@@ -25,6 +25,7 @@
 
         $scope.canvas            = new fabric.Canvas('canvas');
         $scope.changeCanvasColor = changeCanvasColor;
+        $scope.uploadImage       = uploadImage;
 
         rect = new fabric.Rect({
           top : 100,
@@ -38,14 +39,29 @@
       }
 
       function renderCanvas(canvas){
-        return canvas.renderAll.bind(canvas)
+        return canvas.renderAll.bind(canvas);
       }
 
       function changeCanvasColor(color) {
         if (color) {
-          console.log(color);
           $scope.canvas.setBackgroundColor(color, renderCanvas($scope.canvas));
         }
+      }
+
+      function uploadImage(uploadedImg) {
+        var imgObj = new Image();
+        imgObj.src = uploadedImg;
+
+        var image = new fabric.Image(imgObj);
+        image.set({
+          left: 0,
+          top: 0,
+          padding: 10,
+          cornersize: 10
+        });
+
+        $scope.canvas.add(image);
+        $scope.canvas.sendToBack(image);
       }
     }
   }
