@@ -9,17 +9,7 @@
   function doorsCanvas() {
     var directive = {
       restrict: 'E',
-      template: '<div class="doors-canvas-part">' +
-      '<div class="controls">' +
-      '<button class="color black" ng-click="changeCanvasColor(\'#333333\')"></button>' +
-      '<button class="color white" ng-click="changeCanvasColor(\'#ffffff\')"></button>' +
-      '</div>' +
-      '<canvas id="canvas" width="500" height="400"></canvas>' +
-      '<label class="fileUploader">' +
-      '<span class="upload">Загрузить</span>' +
-      '<input type="file" class="js-image hidden" id="image-upload" fileread="uploadImage" accept="image/jpeg,image/png,image/gif" />' +
-      '</label>' +
-      '</div>',
+      templateUrl: '/doors-canvas.html',
       controller: doorsCanvasCtrl,
       bindToController: true
     };
