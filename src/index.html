@@ -1,10 +1,28 @@
-<!doctype html>
-<html ng-app="doorsProject">
-<head>
-  <meta charset="utf-8">
-  <title>doorsProject</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+<div ng-app="doorsProject">
+  <script type="text/ng-template" id="/choose-door-bar.html">
+    <aside class="choose-bar">
+      <ul class="choose-door">
+        <li ng-repeat="door in doorsUrls" class="door" ng-click="addDoor($index)">
+          <img ng-src="{{door.url}}" alt="" id="door-{{$index}}">
+        </li>
+      </ul>
+    </aside>
+  </script>
+
+  <script type="text/ng-template" id="/doors-canvas.html">
+    <div class="doors-canvas-part">
+      <div class="controls">
+        <button class="color black" ng-click="changeCanvasColor('#333333')"></button>
+        <button class="color white" ng-click="changeCanvasColor('#ffffff')"></button>
+      </div>
+      <canvas id="canvas" width="500" height="400"></canvas>
+      <label class="fileUploader">
+        <span class="upload">Загрузить</span>
+        <input type="file" class="js-image hidden" id="image-upload" fileread="uploadImage" accept="image/jpeg,image/png,image/gif" />
+      </label>
+    </div>
+  </script>
+  
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -18,8 +36,7 @@
   <!-- css files will be automatically insert here -->
   <!-- endinject -->
   <!-- endbuild -->
-</head>
-<body>
+
   <!--[if lt IE 10]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -48,6 +65,4 @@
   <!-- angular templates will be automatically converted in js and inserted here -->
   <!-- endinject -->
   <!-- endbuild -->
-
-</body>
-</html>
+</div>

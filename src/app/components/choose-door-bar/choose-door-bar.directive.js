@@ -9,7 +9,7 @@
   function chooseDoorBar() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/choose-door-bar/choose-door-bar.html',
+      templateUrl: '/choose-door-bar.html',
       controller: chooseDoorBarCtrl,
       bindToController: true
     };

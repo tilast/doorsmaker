@@ -9,7 +9,7 @@
   function doorsCanvas() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/doors-canvas/doors-canvas.html',
+      templateUrl: '/doors-canvas.html',
       controller: doorsCanvasCtrl,
       bindToController: true
     };
