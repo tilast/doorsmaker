@@ -22,29 +22,27 @@
       $scope.addRect = addRect;
 
       function addRect(color) {
-        var canvasObjects   = $rootScope.canvas.getObjects(),
-        lastCoordinates = {},
+        var canvasObjects = $rootScope.canvas.getObjects(),
+        rects = canvasObjects.filter(function(obj) {
+          return obj.name == "rectangle";
+        }),
+        lastRect = rects[rects.length - 1],
         rect;
 
-        for (var i = 0; i < canvasObjects.length; i++) {
-          if (canvasObjects[i].name == "rectangle") {
-            lastCoordinates.left = canvasObjects[i].left;
-            lastCoordinates.top  = canvasObjects[i].top;
-            $rootScope.canvas.remove(canvasObjects[i]);
-          }
-        }
-
         rect = new fabric.Rect({
-          top : lastCoordinates.top,
-          left : lastCoordinates.left,
+          top : lastRect.top,
+          left : lastRect.left,
           width : 50,
           height : 50,
           name : 'rectangle',
           fill : color
         });
-        
+
+        $rootScope.canvas.remove(lastRect);
         $rootScope.canvas.add(rect);
       }
+
+
     }
   }
 })();
