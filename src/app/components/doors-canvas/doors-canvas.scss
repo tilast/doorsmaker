@@ -1,7 +1,60 @@
-.canvas-container {
-  margin: 10px 0;
+/* .canvas-container {
+margin: 10px 0;
 }
-
+*/
 #canvas {
   border: 1px solid black;
+}
+
+.doors-canvas-part {
+  position: relative;
+  display: inline-block;
+
+  width: 500px;
+  margin: 0;
+
+  .controls {
+    position: absolute;
+    top: 10px;
+    left: 420px;
+    z-index: 1000;
+    .color {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ABABAB;
+      display: inline-block;
+      outline: none;
+      box-shadow: 1px 1px 3px rgba(171,171,171,0.3);
+
+      &:active {
+        box-shadow: none;
+      }
+
+      &.black {
+        background: lighten(#333333, 20);
+      }
+
+      &.white {
+        background: #ffffff;
+      }
+    }
+
+  }
+
+  .fileUploader {
+    position: absolute;
+    cursor: pointer;
+    top: 360px;
+    left: 15px;
+
+    .upload {
+      background: #B83423;
+      border: white;
+      color: white;
+      border-radius: 5px;
+      padding: 7px;
+    }
+  }
+
 }

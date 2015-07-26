@@ -19,12 +19,24 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   padding: 0.2em 0;
 }
 
-.thumbnail {
-  height: 200px;
+.widget-content {
+  width: 1000px;
+  text-align: center;
 
-  img.pull-right {
-    width: 50px;
+  .doors-component {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 500px;
   }
+}
+
+
+
+choose-door-bar, doors-canvas {
+  margin: 0;
+  padding: 0;
 }
 
 /**

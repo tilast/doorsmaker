@@ -17,26 +17,36 @@
     return directive;
 
     /** @ngInject */
-    function chooseDoorBarCtrl(fabric, $scope, $rootScope) {
-      $scope.addRect = addRect;
+    function chooseDoorBarCtrl(fabric, $scope, $rootScope, chooseDoorBarService) {
+      $scope.addDoor = addDoor;
+      $scope.doorsUrls = [];
 
-      function addRect(color) {
+      var CONSTANTS = {
+        default_left : 100,
+        default_top : 100
+      }
+
+      init();
+
+      function init() {
+        $scope.doorsUrls = chooseDoorBarService.getDoors();
+      }
+
+      function addDoor(index) {
         var canvasObjects = $rootScope.canvas.getObjects(),
-            rects = canvasObjects.filter(function(obj) {
-              return obj.name == "rectangle";
-            }),
-            lastRect = rects[rects.length - 1],
-            rect = new fabric.Rect({
-              top : lastRect.top,
-              left : lastRect.left,
-              width : 50,
-              height : 50,
-              name : 'rectangle',
-              fill : color
-            });
+        doors = canvasObjects.filter(function(obj) {
+          return obj.name == "door";
+        }),
+        lastDoor = doors[doors.length - 1],
+        doorImg = document.getElementById('door-' + index),
+        imgInstance = new fabric.Image(doorImg, {
+          left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
+          top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
+          name: 'door'
+        });
 
-        $rootScope.canvas.remove(lastRect);
-        $rootScope.canvas.add(rect);
+        $rootScope.canvas.remove(lastDoor);
+        $rootScope.canvas.add(imgInstance);
       }
     }
   }
