@@ -9,7 +9,7 @@
   function mainService() {
     var service = {
       handlePicture : function(image){
-        // To Do Ajax ...
+        // TODO Ajax ...
         console.log(image);
       }
     };
