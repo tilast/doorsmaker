@@ -61,6 +61,9 @@
           cornersize: 10,
           name: 'background'
         });
+
+        $rootScope.canvas.add(image);
+        $rootScope.canvas.sendToBack(image);
       }
     }
   }
