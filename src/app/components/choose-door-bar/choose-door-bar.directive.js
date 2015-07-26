@@ -9,7 +9,13 @@
   function chooseDoorBar() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/choose-door-bar/choose-door-bar.html',
+      template: '<aside class="choose-bar">' +
+      '<ul class="choose-door">' +
+      '<li ng-repeat="door in doorsUrls" class="door" ng-click="addDoor($index)">' +
+      '<img ng-src="{{door.url}}" alt="" id="door-{{$index}}">' +
+      '</li>' +
+      '</ul>' +
+      '</aside>',
       controller: chooseDoorBarCtrl,
       bindToController: true
     };
