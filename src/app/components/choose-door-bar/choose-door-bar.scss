@@ -1,38 +1,30 @@
 .choose-bar {
   display: inline-block;
-  width: 500px;
+  width: 450px;
   height: 500px;
-
-  background: lightgreen;
 
   margin: 0;
   padding: 0;
+
+  text-align: center;
+  overflow: hidden;
 
   .choose-door {
     margin: 0;
     padding: 0;
     list-style: none;
 
-    .rect {
-      display: block;
+    .door {
+      display: inline-block;
 
       margin: 10px;
 
       width: 100px;
-      height: 100px;
 
       border: 1px solid black;
 
-      &.blue {
-        background: blue;
-      }
-
-      &.green {
-        background: green;
-      }
-
-      &.red {
-        background: red;
+      img {
+        width: 100px;
       }
     }
   }

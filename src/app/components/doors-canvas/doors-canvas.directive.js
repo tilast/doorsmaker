@@ -23,21 +23,13 @@ console.log('doorscanvas');
       function init(){
         var rect;
 
-        $rootScope.canvas        = new fabric.Canvas('canvas');
+        $rootScope.canvas        = new fabric.Canvas('canvas', {
+          backgroundColor: 'white'
+        });
         $rootScope.renderCanvas  = renderCanvas;
         $scope.changeCanvasColor = changeCanvasColor;
         $scope.uploadImage       = uploadImage;
 
-        rect = new fabric.Rect({
-          top : 100,
-          left : 100,
-          width : 50,
-          height : 50,
-          name: 'rectangle',
-          fill : 'blue'
-        });
-
-        $rootScope.canvas.add(rect);
       }
 
       function renderCanvas(canvas){
@@ -45,7 +37,15 @@ console.log('doorscanvas');
       }
 
       function changeCanvasColor(color) {
+
+        var canvasObjects = $rootScope.canvas.getObjects().filter(function(obj){
+          return obj.name == "background"
+        }),
+        background = canvasObjects[canvasObjects.length - 1];
+
         if (color) {
+          $rootScope.canvas.remove(background);
+          document.getElementsByClassName('js-image')[0].value = "";
           $rootScope.canvas.setBackgroundColor(color, renderCanvas($rootScope.canvas));
         }
       }
@@ -59,7 +59,8 @@ console.log('doorscanvas');
           left: 0,
           top: 0,
           padding: 10,
-          cornersize: 10
+          cornersize: 10,
+          name: 'background'
         });
 
         $rootScope.canvas.add(image);

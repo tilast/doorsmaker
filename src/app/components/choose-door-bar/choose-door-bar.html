@@ -1,10 +1,7 @@
 <aside class="choose-bar">
-  HELLO WORLD
   <ul class="choose-door">
-    <li ng-repeat="door in doorsUrls">
-      <img ng-src="{{door.url}}" alt="">
+    <li ng-repeat="door in doorsUrls" class="door" ng-click="addDoor($index)">
+      <img ng-src="{{door.url}}" alt="" id="door-{{$index}}">
     </li>
-    
-    <li class="rect red" ng-click="addRect('red')"></li>
   </ul>
 </aside>

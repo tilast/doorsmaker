@@ -24,10 +24,12 @@
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div class="container" ng-controller="MainController as main">
-    <doors-canvas />
-    <choose-door-bar />
-    <button class="btn btn-success" ng-click="savePicture()">Save Picture</button>
+  <div class="widget-content" ng-controller="MainController as main">
+    <div class="doors-component">
+      <doors-canvas></doors-canvas>
+      <choose-door-bar></choose-door-bar>
+    </div>
+    <button class="btn btn-success" ng-click="savePicture()">Сохранить</button>
   </div>
 
 
