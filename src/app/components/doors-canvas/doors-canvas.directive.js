@@ -13,7 +13,7 @@
       controller: doorsCanvasCtrl,
       bindToController: true
     };
-
+console.log('doorscanvas');
     return directive;
 
     /** @ngInject */

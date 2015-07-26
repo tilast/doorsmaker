@@ -13,12 +13,20 @@
       controller: chooseDoorBarCtrl,
       bindToController: true
     };
-
+console.log('choose');
     return directive;
 
     /** @ngInject */
-    function chooseDoorBarCtrl(fabric, $scope, $rootScope) {
+    function chooseDoorBarCtrl(fabric, $scope, $rootScope, chooseDoorBarService) {
       $scope.addRect = addRect;
+      $scope.doorsUrls = [];
+      init();
+
+      function init() {
+        $scope.doorsUrls = chooseDoorBarService.getDoors();
+      }
+
+      alert("RENDERED!");
 
       function addRect(color) {
         var canvasObjects = $rootScope.canvas.getObjects(),
