@@ -1,4 +1,14 @@
 <div ng-app="doorsProject">
+  <script type="text/ng-template" id="/choose-door-bar.html">
+    <aside class="choose-bar">
+      <ul class="choose-door">
+        <li ng-repeat="door in doorsUrls" class="door" ng-click="addDoor($index)">
+          <img ng-src="{{door.url}}" alt="" id="door-{{$index}}">
+        </li>
+      </ul>
+    </aside>
+  </script>
+
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
