@@ -17,13 +17,14 @@
     return directive;
 
     /** @ngInject */
-    function doorsCanvasCtrl(fabric, $scope) {
+    function doorsCanvasCtrl(fabric, $scope, $rootScope) {
       init();
 
       function init(){
         var rect;
 
-        $scope.canvas            = new fabric.Canvas('canvas');
+        $rootScope.canvas        = new fabric.Canvas('canvas');
+        $rootScope.renderCanvas  = renderCanvas;
         $scope.changeCanvasColor = changeCanvasColor;
         $scope.uploadImage       = uploadImage;
 
@@ -32,10 +33,11 @@
           left : 100,
           width : 50,
           height : 50,
+          name: 'rectangle',
           fill : 'blue'
         });
 
-        $scope.canvas.add(rect);
+        $rootScope.canvas.add(rect);
       }
 
       function renderCanvas(canvas){
@@ -44,7 +46,7 @@
 
       function changeCanvasColor(color) {
         if (color) {
-          $scope.canvas.setBackgroundColor(color, renderCanvas($scope.canvas));
+          $rootScope.canvas.setBackgroundColor(color, renderCanvas($rootScope.canvas));
         }
       }
 
@@ -60,8 +62,8 @@
           cornersize: 10
         });
 
-        $scope.canvas.add(image);
-        $scope.canvas.sendToBack(image);
+        $rootScope.canvas.add(image);
+        $rootScope.canvas.sendToBack(image);
       }
     }
   }

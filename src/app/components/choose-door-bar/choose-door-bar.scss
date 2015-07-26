@@ -1,0 +1,35 @@
+.choose-bar {
+  display: inline-block;
+  width: 200px;
+  height: 500px;
+  background: lightgreen;
+
+  .choose-door {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .rect {
+      display: block;
+
+      margin: 10px;
+
+      width: 100px;
+      height: 100px;
+
+      border: 1px solid black;
+
+      &.blue {
+        background: blue;
+      }
+
+      &.green {
+        background: green;
+      }
+
+      &.red {
+        background: red;
+      }
+    }
+  }
+}
