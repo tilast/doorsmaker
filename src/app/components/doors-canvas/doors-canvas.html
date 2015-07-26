@@ -4,7 +4,8 @@
     <button class="color white" ng-click="changeCanvasColor('#ffffff')"></button>
   </div>
   <canvas id="canvas" width="500" height="400"></canvas>
-  <div class="fileReader">
-    <input type="file" class="js-image" fileread="uploadImage" />
-  </div>
+  <label class="fileUploader">
+    <span class="upload">Загрузить</span>
+    <input type="file" class="js-image hidden" id="image-upload" fileread="uploadImage" accept="image/jpeg,image/png,image/gif" />
+  </label>
 </div>
