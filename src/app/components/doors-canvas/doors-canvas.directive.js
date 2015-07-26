@@ -13,7 +13,7 @@
       controller: doorsCanvasCtrl,
       bindToController: true
     };
-    
+
     return directive;
 
     /** @ngInject */
@@ -37,9 +37,8 @@
       }
 
       function changeCanvasColor(color) {
-
         var canvasObjects = $rootScope.canvas.getObjects().filter(function(obj){
-          return obj.name == "background"
+          return obj.name == "background";
         }),
         background = canvasObjects[canvasObjects.length - 1];
 
@@ -62,9 +61,6 @@
           cornersize: 10,
           name: 'background'
         });
-
-        $rootScope.canvas.add(image);
-        $rootScope.canvas.sendToBack(image);
       }
     }
   }

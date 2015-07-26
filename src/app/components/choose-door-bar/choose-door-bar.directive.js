@@ -39,7 +39,6 @@
         }),
         lastDoor = doors[doors.length - 1],
         doorImg = document.getElementById('door-' + index),
-
         imgInstance = new fabric.Image(doorImg, {
           left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
           top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
@@ -48,9 +47,6 @@
 
         $rootScope.canvas.remove(lastDoor);
         $rootScope.canvas.add(imgInstance);
-
-        // $rootScope.canvas.remove(lastRect);
-        // $rootScope.canvas.add(rect);
       }
     }
   }
