@@ -45,6 +45,8 @@
           name: 'door'
         });
 
+        window.currentDoorUrl = $scope.doorsUrls[index].link;
+
         $rootScope.canvas.remove(lastDoor);
         $rootScope.canvas.add(imgInstance);
       }

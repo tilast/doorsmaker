@@ -11,7 +11,7 @@
       getDoors : function(){
         return document.querySelectorAll('.js-door')
           .map(function(doorImg){
-            return { url: doorImg.src };
+            return { url: doorImg.src, link: doorImg.parentNode.href };
           });
       }
     };
