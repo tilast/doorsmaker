@@ -9,14 +9,11 @@
   function chooseDoorBarService() {
     var service = {
       getDoors : function(){
-        return [
-          { url: "/assets/images/door_1.jpg" },
-          { url: "/assets/images/door_2.jpg" },
-          { url: "/assets/images/door_3.jpg" },
-          { url: "/assets/images/door_4.jpg" },
-          { url: "/assets/images/door_5.jpg" },
-          { url: "/assets/images/door_6.jpg" }
-        ];
+        var doorsImages = document.querySelectorAll('.js-door');
+
+        return doorsImages.map(function(doorImg){
+          return { url: doorImg.src };
+        });
       }
     };
 
