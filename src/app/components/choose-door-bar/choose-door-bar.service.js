@@ -9,7 +9,7 @@
   function chooseDoorBarService() {
     var service = {
       getDoors : function(){
-        return document.querySelectorAll('.js-door')
+        return [].slice.call(document.querySelectorAll(".js-door"))
           .map(function(doorImg){
             return { url: doorImg.src, link: doorImg.parentNode.href };
           });
