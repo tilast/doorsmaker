@@ -17,9 +17,13 @@
     .door {
       display: inline-block;
 
-      width: 100px;
+      padding: 0;
+      margin: 10px;
 
-      border: 1px solid black;
+      &::before {
+        content: "";
+        display: none;
+      }
 
       img {
         width: 100px;
