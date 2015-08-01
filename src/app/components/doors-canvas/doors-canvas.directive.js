@@ -50,18 +50,26 @@
       }
 
       function uploadImage(uploadedImg) {
-        var imgObj = new Image();
+        var imgObj = new Image(),
+            background = $rootScope.canvas.getObjects().filter(function(obj) {
+              return obj.name == "background";
+            }),
+            lastBackground = backgrounds[backgrounds.length - 1];
+        
         imgObj.src = uploadedImg;
 
         var image = new fabric.Image(imgObj);
         image.set({
           left: 0,
           top: 0,
-          padding: 10,
+          lockUniScaling: true,
           cornersize: 10,
-          name: 'background'
+          name: "background"
         });
 
+        image.scaleToWidth($rootScope.canvas.getWidth());
+
+        $rootScope.canvas.remove(lastBackground);
         $rootScope.canvas.add(image);
         $rootScope.canvas.sendToBack(image);
       }

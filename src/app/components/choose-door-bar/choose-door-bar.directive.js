@@ -42,7 +42,9 @@
         imgInstance = new fabric.Image(doorImg, {
           left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
           top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
-          name: 'door'
+          name: 'door',
+          lockRotation: true,
+          lockUniScaling: true
         });
 
         window.currentDoorUrl = $scope.doorsUrls[index].link;
