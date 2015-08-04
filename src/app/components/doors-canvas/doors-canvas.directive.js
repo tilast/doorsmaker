@@ -37,24 +37,27 @@
       }
 
       function changeCanvasColor(color) {
-        var canvasObjects = $rootScope.canvas.getObjects().filter(function(obj){
-          return obj.name == "background";
-        }),
-        background = canvasObjects[canvasObjects.length - 1];
+
+        var lastBackground = deleteBackground('background');
 
         if (color) {
-          $rootScope.canvas.remove(background);
+          $rootScope.canvas.remove(lastBackground);
           document.getElementsByClassName('js-image')[0].value = "";
           $rootScope.canvas.setBackgroundColor(color, renderCanvas($rootScope.canvas));
         }
       }
 
+      function deleteBackground(pattern) {
+        var objects = $rootScope.canvas.getObjects().filter(function(obj){
+          return obj.name === pattern;
+        });
+
+        return objects[objects.length - 1];
+      }
+
       function uploadImage(uploadedImg) {
         var imgObj = new Image(),
-            background = $rootScope.canvas.getObjects().filter(function(obj) {
-              return obj.name == "background";
-            }),
-            lastBackground = backgrounds[backgrounds.length - 1];
+            lastBackground = deleteBackground("background");
         
         imgObj.src = uploadedImg;
 
@@ -69,7 +72,12 @@
 
         image.scaleToWidth($rootScope.canvas.getWidth());
 
-        $rootScope.canvas.remove(lastBackground);
+        if (lastBackground) {
+          $rootScope.canvas.remove(lastBackground);  
+        }
+        
+        debugger;
+
         $rootScope.canvas.add(image);
         $rootScope.canvas.sendToBack(image);
       }
