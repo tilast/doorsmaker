@@ -55,6 +55,7 @@
             oImg.scaleToWidth($rootScope.canvas.getWidth());
             oImg.name = "background";
             $rootScope.canvas.add(oImg);
+            $rootScope.canvas.sendToBack(deleteBackground("background"));
           });
 
           document.getElementsByClassName('js-image')[0].value = "";
