@@ -71,17 +71,18 @@
       }
 
       function uploadImage(uploadedImg) {
-        $('.preloader').show();
+        
+        document.querySelector('.preloader').classList.remove('hidden');
 
         var imgObj = new Image(),
         lastBackground = deleteBackground("background");
         
         imgObj.src = uploadedImg;
 
-        $(imgObj).on('load', function(){
-          $('.preloader').hide();
-
-          return false;
+        debugger;
+        
+        imgObj.addEventListener('load', function(){
+          document.querySelector('.preloader').classList.add('hidden');
         });
 
         var image = new fabric.Image(imgObj);
