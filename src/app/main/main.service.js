@@ -6,11 +6,11 @@
   .factory('mainService', mainService);
 
   /** @ngInject */
-  function mainService() {
+  function mainService($location) {
     var service = {
       handlePicture : function(image){
-        // TODO Ajax ...
-        console.log(image);
+        var w = window.open('about:blank','image from canvas');
+        w.document.write("<img src='" + image + "' alt='from canvas'/>");
       }
     };
 

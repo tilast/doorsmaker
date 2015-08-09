@@ -31,3 +31,16 @@
     }
   }
 }
+
+.preloader {
+  display: inline-block;
+
+  line-height: 20px;
+  vertical-align: middle;
+  
+  width: 16px;
+  height: 16px;
+
+  background-image: url('/assets/images/preloader.GIF');
+  background-size: contain;
+}

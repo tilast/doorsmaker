@@ -23,12 +23,16 @@
       function init(){
         var rect;
 
-        $rootScope.canvas        = new fabric.Canvas('canvas', {
-          backgroundColor: 'white'
-        });
+        $rootScope.canvas        = new fabric.Canvas('canvas');
         $rootScope.renderCanvas  = renderCanvas;
         $scope.changeCanvasColor = changeCanvasColor;
         $scope.uploadImage       = uploadImage;
+
+        fabric.Image.fromURL("assets/images/door_white.jpg", function(oImg) {
+          oImg.scaleToWidth($rootScope.canvas.getWidth());
+          oImg.name = "background";
+          $rootScope.canvas.add(oImg);
+        });
 
       }
 
@@ -36,31 +40,65 @@
         return canvas.renderAll.bind(canvas);
       }
 
-      function changeCanvasColor(color) {
-        var canvasObjects = $rootScope.canvas.getObjects().filter(function(obj){
-          return obj.name == "background";
-        }),
-        background = canvasObjects[canvasObjects.length - 1];
+      function changeCanvasColor(colorImage) {
 
-        if (color) {
-          $rootScope.canvas.remove(background);
+        var lastBackground = deleteBackground('background'),
+        imgObj = new Image();
+
+        if (colorImage) {
+
+          if (lastBackground) {
+            $rootScope.canvas.remove(lastBackground);
+          }
+
+          fabric.Image.fromURL(colorImage, function(oImg) {
+            oImg.scaleToWidth($rootScope.canvas.getWidth());
+            oImg.name = "background";
+            $rootScope.canvas.add(oImg);
+            $rootScope.canvas.sendToBack(deleteBackground("background"));
+          });
+
           document.getElementsByClassName('js-image')[0].value = "";
-          $rootScope.canvas.setBackgroundColor(color, renderCanvas($rootScope.canvas));
         }
       }
 
+      function deleteBackground(pattern) {
+        var objects = $rootScope.canvas.getObjects().filter(function(obj){
+          return obj.name === pattern;
+        });
+
+        return objects[objects.length - 1];
+      }
+
       function uploadImage(uploadedImg) {
-        var imgObj = new Image();
+        
+        document.querySelector('.preloader').classList.remove('hidden');
+
+        var imgObj = new Image(),
+        lastBackground = deleteBackground("background");
+        
         imgObj.src = uploadedImg;
+
+        debugger;
+        
+        imgObj.addEventListener('load', function(){
+          document.querySelector('.preloader').classList.add('hidden');
+        });
 
         var image = new fabric.Image(imgObj);
         image.set({
           left: 0,
           top: 0,
-          padding: 10,
+          lockUniScaling: true,
           cornersize: 10,
-          name: 'background'
+          name: "background"
         });
+
+        image.scaleToWidth($rootScope.canvas.getWidth());
+
+        if (lastBackground) {
+          $rootScope.canvas.remove(lastBackground);  
+        }
 
         $rootScope.canvas.add(image);
         $rootScope.canvas.sendToBack(image);
