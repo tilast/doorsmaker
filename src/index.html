@@ -1,7 +1,6 @@
 <div ng-app="doorsProject">
   <script type="text/ng-template" id="/choose-door-bar.html">
     <aside class="choose-bar">
-
       <ul class="choose-door js-choose-door">
         <li ng-repeat="door in doorsUrls" class="door" ng-click="addMainDoor($index)">
           <img ng-src="{{door.url}}" alt="" id="door-{{$index}}" >
@@ -28,9 +27,7 @@
         <input type="file" class="js-image hidden" id="image-upload" fileread="uploadImage" accept="image/jpeg,image/png" />
         <div class="preloader hidden"></div>
       </label>
-
     </div>
-
 
   </script>
   
@@ -58,20 +55,6 @@
       <choose-door-bar></choose-door-bar>
     </div>
     <button class="btn btn-success" ng-click="savePicture()">Сохранить</button>
-
-    
-
-    <div class="something hidden">
-      <img class="js-door" data-product-id="1" src="assets/images/door_1.jpg">
-      <img class="js-door" data-product-id="1" src="assets/images/door_2.jpg">
-      <img class="js-door" data-product-id="1" src="assets/images/door_3.jpg">
-      <img class="js-door" data-product-id="2" src="assets/images/door_2.jpg">
-      <img class="js-door" data-product-id="2" src="assets/images/door_2.jpg">
-      <img class="js-door" data-product-id="3" src="assets/images/door_3.jpg">
-      <img class="js-door" data-product-id="4" src="assets/images/door_4.jpg">
-      <img class="js-door" data-product-id="5" src="assets/images/door_5.jpg">
-      <img class="js-door" data-product-id="6" src="assets/images/door_6.jpg">
-    </div>
   </div>
 
 
