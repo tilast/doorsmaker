@@ -1,9 +1,15 @@
 <div ng-app="doorsProject">
   <script type="text/ng-template" id="/choose-door-bar.html">
     <aside class="choose-bar">
-      <ul class="choose-door">
-        <li ng-repeat="door in doorsUrls" class="door" ng-click="addDoor($index)">
-          <img ng-src="{{door.url}}" alt="" id="door-{{$index}}">
+      <ul class="choose-door js-choose-door">
+        <li ng-repeat="door in doorsUrls" class="door" ng-click="addMainDoor($index)">
+          <img ng-src="{{door.url}}" alt="" id="door-{{$index}}" >
+        </li>
+      </ul>
+
+      <ul class="doors-color">
+        <li ng-repeat="doorColor in currentDoorColors">
+          <img ng-src="{{doorColor.url}}" ng-click="addSubDoor($index, currentDoorColors)" />
         </li>
       </ul>
     </aside>
@@ -21,8 +27,8 @@
         <input type="file" class="js-image hidden" id="image-upload" fileread="uploadImage" accept="image/jpeg,image/png" />
         <div class="preloader hidden"></div>
       </label>
-
     </div>
+
   </script>
   
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->

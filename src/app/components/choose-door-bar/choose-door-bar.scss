@@ -1,15 +1,13 @@
 .choose-bar {
   display: inline-block;
   width: 450px;
-  height: 500px;
 
   margin: 0;
   padding: 0;
 
-  text-align: center;
-  overflow: hidden;
-
   .choose-door {
+    display: block;
+    border: 1px solid lighten(#251616, 70);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -28,6 +26,23 @@
       img {
         width: 100px;
       }
+    }
+  }
+
+  .doors-color {
+    margin: 10px auto;
+    padding: 0;
+    display: block;
+    list-style: none;
+    clear: both;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    img {
+      height: 100px;
     }
   }
 }

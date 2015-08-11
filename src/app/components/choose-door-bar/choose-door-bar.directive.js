@@ -18,28 +18,42 @@
 
     /** @ngInject */
     function chooseDoorBarCtrl(fabric, $scope, $rootScope, chooseDoorBarService) {
-      $scope.addDoor = addDoor;
-      $scope.doorsUrls = [];
+      $scope.addMainDoor = addMainDoor;
+      $scope.addSubDoor  = addSubDoor;
+      $scope.doorsUrls   = [];
+      $scope.currentDoorColors = [];
 
       var CONSTANTS = {
         default_left : 100,
         default_top : 100
-      }
+      };
 
       init();
 
+
       function init() {
         $scope.doorsUrls = chooseDoorBarService.getDoors();
+
+        setInterval(function() {
+          $('.js-choose-door').slimscroll({
+            height: '400px'
+          });
+        }, 500);
       }
 
-      function addDoor(index) {
+      function addSubDoor(index, subDoors) {
         var canvasObjects = $rootScope.canvas.getObjects(),
         doors = canvasObjects.filter(function(obj) {
           return obj.name == "door";
         }),
         lastDoor = doors[doors.length - 1],
-        doorImg = document.getElementById('door-' + index),
-        imgInstance = new fabric.Image(doorImg, {
+        curDoor  = subDoors[index];
+
+        var imgObj = new Image();
+        imgObj.src = curDoor.url;
+
+        var image = new fabric.Image(imgObj);
+        image.set({
           left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
           top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
           name: 'door',
@@ -47,10 +61,37 @@
           lockUniScaling: true
         });
 
+        $rootScope.canvas.remove(lastDoor);
+        $rootScope.canvas.add(image);
+      }
+
+      function addMainDoor(index) {
+        var canvasObjects = $rootScope.canvas.getObjects(),
+        doors = canvasObjects.filter(function(obj) {
+          return obj.name == "door";
+        }),
+        lastDoor = doors[doors.length - 1],
+        curDoor  = $scope.doorsUrls[index];
+
+        var imgObj = new Image();
+        imgObj.src = curDoor.url;
+
+        var image = new fabric.Image(imgObj);
+        image.set({
+          left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
+          top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
+          name: 'door',
+          lockRotation: true,
+          lockUniScaling: true
+        });
+        
+        
+        $scope.currentDoorColors = $scope.doorsUrls[index].images;
+
         window.currentDoorUrl = $scope.doorsUrls[index].link;
 
         $rootScope.canvas.remove(lastDoor);
-        $rootScope.canvas.add(imgInstance);
+        $rootScope.canvas.add(image);
       }
     }
   }
