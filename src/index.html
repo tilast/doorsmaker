@@ -1,16 +1,13 @@
 <div ng-app="doorsProject">
   <script type="text/ng-template" id="/choose-door-bar.html">
     <aside class="choose-bar">
-      <ul class="choose-door" ng-slimscroll 
-       width="300" 
-       height="150" 
-       border-radius="5px" 
-       size="20px" enabled="true">
+
+      <ul class="choose-door js-choose-door">
         <li ng-repeat="door in doorsUrls" class="door" ng-click="addMainDoor($index)">
-          <img ng-src="{{door.url}}" alt="" id="door-{{$index}}">
+          <img ng-src="{{door.url}}" alt="" id="door-{{$index}}" >
         </li>
       </ul>
-      
+
       <ul class="doors-color">
         <li ng-repeat="doorColor in currentDoorColors">
           <img ng-src="{{doorColor.url}}" ng-click="addSubDoor($index, currentDoorColors)" />
@@ -62,39 +59,7 @@
     </div>
     <button class="btn btn-success" ng-click="savePicture()">Сохранить</button>
 
-    <div ng-slimscroll height="40">
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    vendor
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflkssl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflkssl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    sl;dfjalsdfsadfl;kajsdf;lkajsd;lfkjasdkfjhasdlkfhsdlfjhsjfhaskldjfhaslkjdfhalskjdfhalskjdhfalskdjfhalskjdhfalskjdhflaksjdhflkasjdhflaksjhdflkasjhdflks
-    </div>
+    
 
     <div class="something hidden">
       <img class="js-door" data-product-id="1" src="assets/images/door_1.jpg">

@@ -33,6 +33,12 @@
 
       function init() {
         $scope.doorsUrls = chooseDoorBarService.getDoors();
+
+        setInterval(function() {
+          $('.js-choose-door').slimscroll({
+            height: '400px'
+          });
+        }, 500);
       }
 
       function addSubDoor(index, subDoors) {
