@@ -11,6 +11,8 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    max-height: 500px;
+    overflow: auto;
 
     .door {
       display: inline-block;
@@ -30,20 +32,47 @@
   }
 
   .doors-color {
+    position: absolute;
+    display: flex;
+
+    top: 403px;
+    left: 140px;
+    
     margin: 10px auto;
     padding: 0;
-    display: block;
+
+    max-width: 373px;
+    height: 120px;
+    overflow: auto;
+    
     list-style: none;
     clear: both;
 
     li {
-      display: inline-block;
-      margin: 0 10px;
+      display: block;
+      width: 30px;
+      margin: 0 20px;
     }
 
     img {
       height: 100px;
     }
+  }
+}
+
+
+.main-scrolling-doors {
+  position: absolute;
+  display: block;
+  
+  
+
+  .sub-scrolling-doors {
+    display: block;
+    background-color: red;
+    max-width: 373px;
+    height: 150px;
+    overflow: auto;
   }
 }
 

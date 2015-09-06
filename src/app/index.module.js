@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('doorsProject', ['ngSanitize', 'jkuri.slimscroll']);
+    .module('doorsProject', ['ngSanitize', 'jQueryScrollbar']);
 
 })();

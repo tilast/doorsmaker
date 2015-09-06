@@ -1,13 +1,12 @@
 <div ng-app="doorsProject">
   <script type="text/ng-template" id="/choose-door-bar.html">
     <aside class="choose-bar">
-      <ul class="choose-door js-choose-door">
+      <ul class="choose-door js-choose-door scrollbar-inner">
         <li ng-repeat="door in doorsUrls" class="door" ng-click="addMainDoor($index)">
           <img ng-src="{{door.url}}" alt="" id="door-{{$index}}" >
         </li>
       </ul>
-
-      <ul class="doors-color">
+      <ul class="doors-color js-doors-colors">
         <li ng-repeat="doorColor in currentDoorColors">
           <img ng-src="{{doorColor.url}}" ng-click="addSubDoor($index, currentDoorColors)" />
         </li>
@@ -54,9 +53,8 @@
       <doors-canvas></doors-canvas>
       <choose-door-bar></choose-door-bar>
     </div>
-    <button class="btn btn-success" ng-click="savePicture()">Сохранить</button>
+    <button class="btn btn-success btn-save" ng-click="savePicture()">Сохранить</button>
   </div>
-
 
   <!-- build:js(src) scripts/vendor.js -->
   <!-- bower:js -->

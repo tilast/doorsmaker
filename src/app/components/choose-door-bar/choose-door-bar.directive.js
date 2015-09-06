@@ -33,12 +33,10 @@
 
       function init() {
         $scope.doorsUrls = chooseDoorBarService.getDoors();
-
-        setInterval(function() {
-          $('.js-choose-door').slimscroll({
-            height: '400px'
-          });
-        }, 500);
+        //#TODO: add vertical scroll for .js-choose-door here...
+        $(document).ready(function(){
+          $('.js-choose-door').scrollbar();
+        });
       }
 
       function addSubDoor(index, subDoors) {
@@ -54,6 +52,8 @@
 
         var image = new fabric.Image(imgObj);
         image.set({
+          scaleX: lastDoor ? lastDoor.getScaleX() : 1,
+          scaleY: lastDoor ? lastDoor.getScaleY() : 1,
           left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
           top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
           name: 'door',
@@ -76,8 +76,14 @@
         var imgObj = new Image();
         imgObj.src = curDoor.url;
 
+        if (lastDoor) {
+          console.log(lastDoor.getScaleX());
+        }
+
         var image = new fabric.Image(imgObj);
         image.set({
+          scaleX: lastDoor ? lastDoor.getScaleX() : 1,
+          scaleY: lastDoor ? lastDoor.getScaleY() : 1,
           left: lastDoor ? lastDoor.left : CONSTANTS.default_left,
           top: lastDoor ? lastDoor.top : CONSTANTS.default_top,
           name: 'door',
@@ -87,6 +93,8 @@
         
         
         $scope.currentDoorColors = $scope.doorsUrls[index].images;
+
+        //#TODO: add horizontal scroll for here...
 
         window.currentDoorUrl = $scope.doorsUrls[index].link;
 

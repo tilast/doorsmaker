@@ -5,6 +5,5 @@
   angular
     .module('doorsProject')
     .constant('fabric', fabric);
-    // .constant('slimScroll', slimScroll);
 
 })();
