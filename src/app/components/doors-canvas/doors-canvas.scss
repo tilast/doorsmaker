@@ -1,9 +1,20 @@
-/* .canvas-container {
-margin: 10px 0;
-}
-*/
 #canvas {
   border: 1px solid black;
+}
+
+.btn-save {
+  position: absolute !important;
+  top: 470px;
+  left: 33px;
+  display: block;
+  width: 64.75px !important;
+  height: 24px !important;
+  cursor: pointer;
+
+  &:hover {
+    width: 64.75px !important;
+    height: 24px !important;
+  }
 }
 
 .doors-canvas-part {
@@ -45,15 +56,16 @@ margin: 10px 0;
   .fileUploader {
     position: absolute;
     cursor: pointer;
-    top: 360px;
-    left: 15px;
+    top: 420px;
+    left: 20px;
 
     .upload {
       background: #B83423;
       border: white;
       color: white;
       border-radius: 5px;
-      padding: 7px;
+      padding: 9px 15px;
+      font-weight: 400;
     }
   }
 
