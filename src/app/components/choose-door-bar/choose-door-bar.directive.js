@@ -34,8 +34,8 @@
       function init() {
         $scope.doorsUrls = chooseDoorBarService.getDoors();
         //#TODO: add vertical scroll for .js-choose-door here...
-        $(document).ready(function(){
-          $('.js-choose-door').scrollbar();
+        angular.element(document).ready(function(){
+          angular.element('.js-choose-door').scrollbar();
         });
       }
 
@@ -75,10 +75,6 @@
 
         var imgObj = new Image();
         imgObj.src = curDoor.url;
-
-        if (lastDoor) {
-          console.log(lastDoor.getScaleX());
-        }
 
         var image = new fabric.Image(imgObj);
         image.set({

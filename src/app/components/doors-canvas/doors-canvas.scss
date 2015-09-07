@@ -3,10 +3,18 @@
 }
 
 .btn-save {
-  position: absolute;
+  position: absolute !important;
   top: 470px;
   left: 33px;
   display: block;
+  width: 64.75px !important;
+  height: 24px !important;
+  cursor: pointer;
+
+  &:hover {
+    width: 64.75px !important;
+    height: 24px !important;
+  }
 }
 
 .doors-canvas-part {

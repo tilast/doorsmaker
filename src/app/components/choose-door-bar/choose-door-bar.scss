@@ -20,6 +20,8 @@
       padding: 0;
       margin: 10px;
 
+      cursor: pointer;
+
       &::before {
         content: "";
         display: none;
@@ -50,8 +52,13 @@
 
     li {
       display: block;
-      width: 30px;
-      margin: 0 20px;
+      padding: 0 !important;
+      margin: 0 5px !important;
+
+      &:before {
+        content: "" !important;
+        font-size: inherit !important;
+      }
     }
 
     img {
